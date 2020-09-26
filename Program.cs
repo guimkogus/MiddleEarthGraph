@@ -7,7 +7,7 @@ namespace MiddleEarthGraph
         static void Main(string[] args)
         {
             Tests tests = new Tests();
-            tests.queueTest();
+            tests.stackTest();
         }
     }
 }
