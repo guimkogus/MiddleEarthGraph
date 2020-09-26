@@ -6,7 +6,8 @@ namespace MiddleEarthGraph
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Tests tests = new Tests();
+            tests.queueTest();
         }
     }
 }
