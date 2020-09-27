@@ -7,9 +7,9 @@ public class Tests
         Console.WriteLine("Iniciando teste de FILA:");
         Console.WriteLine();
 
-        int tamanho = 6;
-        Queue queue = new Queue(tamanho);
-        Console.WriteLine("Criamos a FILA com " + tamanho + " espaços");
+        int size = 6;
+        Queue queue = new Queue(size);
+        Console.WriteLine("Criamos a FILA com " + size + " espaços");
         queue.push(16);
         Console.WriteLine("Inserimos o elemento " + queue.getLast());
         queue.push(35);
@@ -47,9 +47,9 @@ public class Tests
         Console.WriteLine("Iniciando teste de PILHA:");
         Console.WriteLine();
 
-        int tamanho = 6;
-        Stack stack = new Stack(tamanho);
-        Console.WriteLine("Criamos a PILHA com " + tamanho + " espaços");
+        int size = 6;
+        Stack stack = new Stack(size);
+        Console.WriteLine("Criamos a PILHA com " + size + " espaços");
         stack.push('A');
         Console.WriteLine("Inserimos o elemento '" + stack.getLast() + "'");
         stack.push('B');
@@ -73,6 +73,44 @@ public class Tests
         stack.multipop(n);
         Console.WriteLine("Agora o elemento no topo é o '" + stack.getLast() + "'");
         Console.WriteLine("Tamanho atual da pilha: " + stack.lenght());
+
+        Console.WriteLine();
+        Console.WriteLine("Fim do teste");
+        Console.WriteLine("-------------------");
+        Console.WriteLine();
+    }
+
+    public void graphTest()
+    {
+        Console.WriteLine("-------------------");
+        Console.WriteLine("Iniciando teste de GRAFO:");
+        Console.WriteLine();
+
+        string[] locations = new string[] {
+            "Embu",
+            "Capão Redondo",
+            "Campo Limpo",
+            "Vila das Belezas",
+            "Giovanni Groncchi",
+            "Santo Amaro",
+            "Socorro",
+            "Jurubatuba"
+        };
+
+        Graph graph = new Graph(locations);
+        Console.WriteLine("Criamos o GRAFO com " + locations.Length + " vertices");
+
+        graph.addEdge("Embu", "Capão Redondo");
+        graph.addEdge("Capão Redondo", "Campo Limpo");
+        graph.addEdge("Campo Limpo", "Vila das Belezas");
+        graph.addEdge("Vila das Belezas", "Giovanni Groncchi");
+        graph.addEdge("Giovanni Groncchi", "Santo Amaro");
+        graph.addEdge("Santo Amaro", "Socorro");
+        graph.addEdge("Socorro", "Jurubatuba");
+
+        graph.printDistances("Santo Amaro");
+        Console.WriteLine();
+        Console.WriteLine("Capão Redondo possui " + graph.getDegree("Capão Redondo") + " vizinhos");
 
         Console.WriteLine();
         Console.WriteLine("Fim do teste");
