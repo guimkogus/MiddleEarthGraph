@@ -6,9 +6,9 @@ namespace MiddleEarthGraph
     {
         static void Main(string[] args)
         {
-            Tests tests = new Tests();
+            MiddleEarth middleEarth = MiddleEarth.getInstance();
 
-            tests.graphTest();
+            middleEarth.map.printDistances("Sarn Gebir");
         }
     }
 }

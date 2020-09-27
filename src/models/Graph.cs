@@ -217,7 +217,7 @@ public class Graph
             }
         }
         Console.WriteLine();
-        Console.WriteLine("Distância de cada vértice até " + vertices[vIndex]);
+        Console.WriteLine("Distância de cada local até " + vertices[vIndex]);
 
         for (int i = 0; i < totVertices; i++)
             Console.WriteLine(vertices[i] + " = " + dist[i]);
