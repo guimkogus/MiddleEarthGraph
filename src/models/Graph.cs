@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 
 public class Graph
 {
@@ -158,20 +159,20 @@ public class Graph
         Console.WriteLine();
     }
 
-    public void printDistances(int vertex)
+    public void BreadthFirstSearch(int vertex)
     {
         int[] dist = new int[totVertices];
 
         for (int i = 0; i < totVertices; i++)
             dist[i] = -1;
 
-        Queue Q = new Queue(totVertices);
+        Queue queue = new Queue(totVertices);
         dist[vertex] = 0;
-        Q.push(vertex);
+        queue.push(vertex);
 
-        while (Q.lenght() > 0)
+        while (queue.lenght() > 0)
         {
-            int x = Q.pop();
+            int x = queue.pop();
             for (int y = 0; y < totVertices; y++)
             {
                 if (isNeighbors(x, y) && dist[y] < 0)
@@ -179,7 +180,7 @@ public class Graph
                     Console.WriteLine(vertices[x] + " descobriu " + vertices[y]);
 
                     dist[y] = dist[x] + 1;
-                    Q.push(y);
+                    queue.push(y);
                 }
             }
         }
@@ -190,29 +191,36 @@ public class Graph
             Console.WriteLine(vertices[i] + " = " + dist[i]);
     }
 
-    public void printDistances(string vertex)
+    public void BreadthFirstSearch(string vertex, string vertexFinal)
     {
         int[] dist = new int[totVertices];
         int vIndex = getVertexIndex(vertex);
+        ArrayList shortestPath = new ArrayList();
 
         for (int i = 0; i < totVertices; i++)
             dist[i] = -1;
 
-        Queue Q = new Queue(totVertices);
+        Queue queue = new Queue(totVertices);
         dist[vIndex] = 0;
-        Q.push(vIndex);
+        queue.push(vIndex);
 
-        while (Q.lenght() > 0)
+        while (queue.lenght() > 0)
         {
-            int x = Q.pop();
-            for (int y = 0; y < totVertices; y++)
+            int currentLocation = queue.pop();
+            for (int destination = 0; destination < totVertices; destination++)
             {
-                if (isNeighbors(x, y) && dist[y] < 0)
+                if (isNeighbors(currentLocation, destination) && dist[destination] < 0)
                 {
-                    Console.WriteLine(vertices[x] + " descobriu " + vertices[y]);
+                    Console.WriteLine(vertices[currentLocation] + " descobriu " + vertices[destination]);
 
-                    dist[y] = dist[x] + 1;
-                    Q.push(y);
+                    dist[destination] = dist[currentLocation] + 1;
+                    queue.push(destination);
+
+
+                    if (getDegree(destination) > 1)
+                    {
+                        shortestPath.Add(vertices[destination]);
+                    }
                 }
             }
         }
@@ -221,5 +229,13 @@ public class Graph
 
         for (int i = 0; i < totVertices; i++)
             Console.WriteLine(vertices[i] + " = " + dist[i]);
+
+        Console.WriteLine();
+        Console.WriteLine("A menor distância até  " + vertexFinal + " é percorrendo: ");
+        foreach (var local in shortestPath)
+        {
+            Console.Write(local + " > ");
+        }
+        Console.Write(vertexFinal);
     }
 }

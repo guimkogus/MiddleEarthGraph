@@ -8,7 +8,7 @@ namespace MiddleEarthGraph
         {
             MiddleEarth middleEarth = MiddleEarth.getInstance();
 
-            middleEarth.map.printDistances("Sarn Gebir");
+            middleEarth.map.BreadthFirstSearch("Hobbiton", "Orodruin");
         }
     }
 }

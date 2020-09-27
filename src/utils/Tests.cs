@@ -108,7 +108,7 @@ public class Tests
         graph.addEdge("Santo Amaro", "Socorro");
         graph.addEdge("Socorro", "Jurubatuba");
 
-        graph.printDistances("Santo Amaro");
+        graph.BreadthFirstSearch("Santo Amaro", "Embu");
         Console.WriteLine();
         Console.WriteLine("Capão Redondo possui " + graph.getDegree("Capão Redondo") + " vizinhos");
 
