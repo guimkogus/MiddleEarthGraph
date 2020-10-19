@@ -1,5 +1,3 @@
-using System;
-
 public class MiddleEarth
 {
     private static MiddleEarth instance = new MiddleEarth();

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MiddleEarthGraph
+﻿namespace MiddleEarthGraph
 {
     class Program
     {
